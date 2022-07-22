@@ -1,0 +1,9 @@
+dependencies {
+    implementation project(":CorpseReborn-v1_19_R1")
+}
+
+shadowJar {
+    archiveBaseName.set("CorpseReborn")
+    archiveVersion.set("")
+    archiveClassifier.set("")
+}

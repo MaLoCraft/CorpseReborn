@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    repositories {
+        mavenLocal()
+        maven {
+            url = uri('https://repo.maven.apache.org/maven2/')
+        }
+
+        maven {
+            url = uri('https://hub.spigotmc.org/nexus/content/repositories/snapshots/')
+        }
+
+        maven {
+            url = uri('https://oss.sonatype.org/content/groups/public/')
+        }
+
+        maven {
+            url = uri('https://jitpack.io')
+        }
+    }
+
+    group = 'org.golde'
+    version = '2.16.0'
+
+    compileJava.options.encoding = 'UTF-8'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    task wrapper(type: Wrapper){
+        gradleVersion = '7.2'
+    }
+
+    task prepareKotlinBuildScriptModel {
+
+    }
+
+    tasks.build.dependsOn tasks.shadowJar
+}

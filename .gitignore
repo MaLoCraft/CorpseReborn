@@ -3,4 +3,10 @@ bin/
 
 DUMMY/
 Export/*
+target/
 !Export/mergejars.bat
+server/
+.idea/
+*.iml
+build/
+.gradle/
